@@ -9,5 +9,10 @@ import { UserService } from "../user-service.service";
 export class DashboardComponent implements OnInit {
   constructor(private user: UserService) {}
 
-  ngOnInit() {}
+  name = "anonymous";
+
+  ngOnInit() {
+    console.log("is user logged in? ", this.user.getUserLoggedIn());
+    this.name = this.user.username;
+  }
 }
