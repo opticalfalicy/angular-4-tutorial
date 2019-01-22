@@ -1,12 +1,3 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center"><h1 blueColored>Hello World</h1></div>
-
-<!-- <div *ngIf="visible; then evenClicked; else oddClicked">this works</div> -->
-
-<div *ngIf="counter % 2 == 0; let randomVariable">Yep!{{ randomVariable }}</div>
-<button (click)="toggleDiv()">Toggle</button>
-
-<ng-template #oddClicked>odd number of clicks</ng-template>
-<ng-template #evenClicked>even number of clicks</ng-template>
+<h2>Router Views:</h2>
 
 <router-outlet></router-outlet>
