@@ -4,26 +4,35 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { HeaderComponent } from "./header/header.component";
 import { BlueColoredDirective } from "./blue-colored.directive";
+import { HeaderComponent } from "./header/header.component";
+import { LoginFormComponent } from "./login-form/login-form.component";
+import { FooterComponent } from "./footer/footer.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
-import { HomeComponent } from "./home/home.component";
-import { LoginComponent } from "./login/login.component";
+
+import { UserService } from "./user-service.service";
+import { AuthguardGuard } from "./authguard.guard";
 
 const appRoutes: Routes = [
-  { path: "dashboard", component: DashboardComponent },
-  { path: "home", component: HomeComponent },
-  { path: "login", component: LoginComponent }
+  {
+    path: "",
+    component: LoginFormComponent
+  },
+  {
+    path: "dashboard",
+    canActivate: [AuthguardGuard],
+    component: DashboardComponent
+  }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     BlueColoredDirective,
-    DashboardComponent,
-    HomeComponent,
-    LoginComponent
+    HeaderComponent,
+    LoginFormComponent,
+    FooterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +40,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [UserService, AuthguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
