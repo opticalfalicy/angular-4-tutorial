@@ -9,9 +9,11 @@ import { HeaderComponent } from "./header/header.component";
 import { LoginFormComponent } from "./login-form/login-form.component";
 import { FooterComponent } from "./footer/footer.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { UserComponent } from "./user/user.component";
 
 import { UserService } from "./user-service.service";
 import { AuthguardGuard } from "./authguard.guard";
+import { NotfoundComponent } from "./notfound/notfound.component";
 
 const appRoutes: Routes = [
   {
@@ -19,9 +21,21 @@ const appRoutes: Routes = [
     component: LoginFormComponent
   },
   {
+    path: "users/:name",
+    component: UserComponent
+  },
+  {
+    path: "users/:name/:id",
+    component: UserComponent
+  },
+  {
     path: "dashboard",
     canActivate: [AuthguardGuard],
     component: DashboardComponent
+  },
+  {
+    path: "**",
+    component: NotfoundComponent
   }
 ];
 
@@ -32,7 +46,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginFormComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
