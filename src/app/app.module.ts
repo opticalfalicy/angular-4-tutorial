@@ -23,6 +23,7 @@ const appRoutes: Routes = [
   {
     path: "users",
     // component: UserComponent,
+    pathMatch: "prefix",
     children: [
       {
         path: ":name",
