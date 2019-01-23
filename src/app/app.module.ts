@@ -5,58 +5,14 @@ import { RouterModule, Routes } from "@angular/router";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BlueColoredDirective } from "./blue-colored.directive";
-import { HeaderComponent } from "./header/header.component";
-import { LoginFormComponent } from "./login-form/login-form.component";
-import { FooterComponent } from "./footer/footer.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
-import { UserComponent } from "./user/user.component";
 
 import { UserService } from "./user-service.service";
 import { AuthguardGuard } from "./authguard.guard";
-import { NotfoundComponent } from "./notfound/notfound.component";
 
-const appRoutes: Routes = [
-  {
-    path: "",
-    component: LoginFormComponent
-  },
-  {
-    path: "users",
-    // component: UserComponent,
-    pathMatch: "prefix",
-    children: [
-      {
-        path: ":name",
-        component: UserComponent
-      },
-      {
-        path: ":name/:id",
-        component: UserComponent
-      }
-    ]
-  },
-  {
-    path: "dashboard",
-    canActivate: [AuthguardGuard],
-    component: DashboardComponent
-  },
-  {
-    path: "**",
-    component: NotfoundComponent
-  }
-];
+const appRoutes: Routes = [];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BlueColoredDirective,
-    HeaderComponent,
-    LoginFormComponent,
-    FooterComponent,
-    DashboardComponent,
-    UserComponent,
-    NotfoundComponent
-  ],
+  declarations: [AppComponent, BlueColoredDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,

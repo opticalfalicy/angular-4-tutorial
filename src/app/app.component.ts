@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 
 @Component({
   selector: "app-root",
@@ -6,36 +6,18 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  username = "swedishgoodbye";
+  constructor() {
+    setInterval(() => {
+      this.send2Server();
+    }, 2000);
+  }
 
-  // changeUsername(event) {
-  //   this.username = event.target.value;
-  // }
+  @ViewChild("myInputText") inputText;
 
-  // title = "my-app";
-  // visible = false;
-  // counter = 0;
-  // result = 2;
-  // myCustomString = "";
+  title = "app";
 
-  // constructor() {
-  //   setTimeout(() => {
-  //     this.result = 50;
-  //   }, 2000);
-  // }
-
-  // myFunction(event) {
-  //   this.myCustomString += event.target.value + "\n";
-  // }
-
-  // toggleDiv() {
-  //   // this.visible = !this.visible;
-  //   this.counter++;
-  // }
-  // myFavLang = [
-  //   { name: "html", type: "frontend" },
-  //   { name: "css", type: "frontend" },
-  //   { name: "js", type: "frontend" },
-  //   { name: "ruby", type: "backend" }
-  // ];
+  send2Server() {
+    let data = this.inputText.nativeElement;
+    console.log(data.value);
+  }
 }
