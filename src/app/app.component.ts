@@ -1,4 +1,4 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component, ViewChild, Input } from "@angular/core";
 
 @Component({
   selector: "app-root",
@@ -6,18 +6,9 @@ import { Component, ViewChild } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  constructor() {
-    setInterval(() => {
-      this.send2Server();
-    }, 2000);
-  }
+  constructor() {}
 
-  @ViewChild("myInputText") inputText;
-
-  title = "app";
-
-  send2Server() {
-    let data = this.inputText.nativeElement;
-    console.log(data.value);
+  outputMethod(ev) {
+    console.log(ev, "got some text");
   }
 }

@@ -1,5 +1,6 @@
 <div id="fullPage">
   Ghost Reportin'
 
-  <input type="text" #myInputText />
+  <app-child [myValue]="3 + 5 + 7" (myOutputValue)="outputMethod($event)">
+  </app-child>
 </div>

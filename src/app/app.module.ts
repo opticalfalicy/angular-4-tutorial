@@ -8,11 +8,12 @@ import { BlueColoredDirective } from "./blue-colored.directive";
 
 import { UserService } from "./user-service.service";
 import { AuthguardGuard } from "./authguard.guard";
+import { ChildComponent } from './child/child.component';
 
 const appRoutes: Routes = [];
 
 @NgModule({
-  declarations: [AppComponent, BlueColoredDirective],
+  declarations: [AppComponent, BlueColoredDirective, ChildComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
