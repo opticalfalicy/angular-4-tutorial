@@ -21,12 +21,18 @@ const appRoutes: Routes = [
     component: LoginFormComponent
   },
   {
-    path: "users/:name",
-    component: UserComponent
-  },
-  {
-    path: "users/:name/:id",
-    component: UserComponent
+    path: "users",
+    // component: UserComponent,
+    children: [
+      {
+        path: ":name",
+        component: UserComponent
+      },
+      {
+        path: ":name/:id",
+        component: UserComponent
+      }
+    ]
   },
   {
     path: "dashboard",
